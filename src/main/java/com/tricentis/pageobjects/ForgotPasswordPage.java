@@ -1,0 +1,30 @@
+package com.tricentis.pageobjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ForgotPasswordPage {
+	WebDriver driver;
+	
+	public ForgotPasswordPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(id = "Email")
+	private WebElement yourEmailAddressField;
+	@FindBy(xpath = "//input[@value='Recover']")
+	private WebElement recoveryButton;
+	
+	public void sendTextToYourEmailAddressField(String emailText) {
+		yourEmailAddressField.sendKeys(emailText);;
+	}
+	
+	public void clickOnRecoveryButton() {
+		recoveryButton.click();
+	}
+	
+	
+
+}
